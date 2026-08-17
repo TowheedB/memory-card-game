@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trading Card"
+  short_description: "Create polished trading-card UI components"
+  default_prompt: "Create a sleek trading card for the requested subject with a name banner, artwork, bounded stats, description, and rarity badge."
