@@ -86,7 +86,9 @@ function finishMysteryDraft(){
     remaining=remaining.map(c=>c.id==="joker"?{...chosen}:c);
   }
   document.querySelectorAll("#mystery-board .memory-card").forEach(card=>{if(!card.classList.contains("matched")){card.classList.add("flipped","matched");}});
-  owned[other]=remaining.map(c=>({...c}));
+  // The other player may already have won a pair on an earlier turn. Keep it
+  // and add every still-unmatched card instead of replacing their deck.
+  owned[other].push(...remaining.map(c=>({...c})));
   renderOwned();
   document.querySelector("#mystery-title").textContent="Cards distributed";
   document.querySelector("#mystery-status").textContent=`Player ${other+1} receives the remaining cards. Choose your duel cards.`;
